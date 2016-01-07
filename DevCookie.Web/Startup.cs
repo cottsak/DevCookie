@@ -11,7 +11,6 @@ namespace DevCookie.Web
     {
         public void Configuration(IAppBuilder app)
         {
-            //AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }
