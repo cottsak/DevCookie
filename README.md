@@ -1,4 +1,4 @@
-# mk.DevCookie
+# DevCookie
 > A helper library indended to enable rapid go-to-prod by providing early shared-key cookie based auth and Feature Toggling
 
 When bulding MVPs, it's critical that infrastructure is not the focus. To this end there are a number of components that are very helpful in speeding up the go-to-prod process and DevCookie is one of them.
