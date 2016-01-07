@@ -1,9 +1,9 @@
-﻿using System.Web.Mvc;
-using System.Web.Routing;
+﻿using System.Web.Routing;
+using DevCookie.Web;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(DevCookie.Web.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 
 namespace DevCookie.Web
 {
