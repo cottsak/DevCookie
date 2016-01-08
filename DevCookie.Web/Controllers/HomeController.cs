@@ -9,7 +9,7 @@ namespace DevCookie.Web.Controllers
 {
     public class HomeController : Controller
     {
-        [RequireHttps]
+        //[RequireHttps]
         public ActionResult Index()
         {
             return View();
@@ -32,9 +32,7 @@ namespace DevCookie.Web.Controllers
                 return;
             }
 
-            if (string.Equals(filterContext.HttpContext.Request.Headers["X-Forwarded-Proto"],
-                "https",
-                StringComparison.InvariantCultureIgnoreCase))
+            if (string.Equals(filterContext.HttpContext.Request.Headers["X-Forwarded-Proto"], "https", StringComparison.InvariantCultureIgnoreCase))
             {
                 return;
             }
