@@ -6,7 +6,7 @@ namespace DevCookie.Web
     /// <summary>
     /// Redirect all non-HTTPS traffic to HTTPS (for MVC controllers)
     /// </summary>
-    public class HttpsAllTheThings : ActionFilterAttribute
+    public class HttpsAllTheThings : FilterAttribute, IAuthorizationFilter
     {
         private readonly int? _sslPort;
 
@@ -15,7 +15,7 @@ namespace DevCookie.Web
             _sslPort = sslPort;
         }
 
-        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        public void OnAuthorization(AuthorizationContext filterContext)
         {
             // if request is HTTPS then OK
             if (filterContext.HttpContext.Request.IsSecureConnection)
