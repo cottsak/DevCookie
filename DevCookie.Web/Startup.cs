@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -15,9 +16,7 @@ namespace DevCookie.Web
     {
         public void Configuration(IAppBuilder app)
         {
-            app.RedirectToHttps(44300);     // <- post 44300 is for local iisexpress dev
-            //app.UseForcedHttps(44300);
-
+            app.RedirectToHttps("ssl-port"); 
 
             //#if DEBUG
             //            GlobalFilters.Filters.Add(new HttpsAllTheThings(44300), -100);  // IIS Express; -100 means before all other global filters
@@ -32,9 +31,17 @@ namespace DevCookie.Web
         }
     }
 
-    public static class RedirectToHTTPSExtensions
+    public static class RedirectToHttpsExtensions
     {
-        public static void RedirectToHttps(this IAppBuilder appBuilder, int? sslPort)
+        public static void RedirectToHttps(this IAppBuilder appBuilder, string sslPortAppSettingKey)
+        {
+            RedirectToHttps(appBuilder,
+                ConfigurationManager.AppSettings[sslPortAppSettingKey] == null ? (int?)null
+                : Convert.ToInt32(ConfigurationManager.AppSettings[sslPortAppSettingKey])
+                );
+        }
+
+        public static void RedirectToHttps(this IAppBuilder appBuilder, int? sslPort = null)
         {
             appBuilder.Use((context, next) =>
             {
