@@ -16,7 +16,7 @@ namespace DevCookie.Web
     {
         public void Configuration(IAppBuilder app)
         {
-            app.RedirectToHttps("ssl-port"); 
+            app.RedirectToHttps("ssl-port");
 
             //#if DEBUG
             //            GlobalFilters.Filters.Add(new HttpsAllTheThings(44300), -100);  // IIS Express; -100 means before all other global filters
@@ -45,19 +45,24 @@ namespace DevCookie.Web
         {
             appBuilder.Use((context, next) =>
             {
-                if (context.Request.Uri.Scheme == "http")
-                {
-                    context.Response.Redirect(string.Format("https://{0}{1}{2}",
-                        context.Request.Uri.Host,
-                        sslPort.HasValue ? ":" + sslPort.Value : string.Empty,
-                        context.Request.Uri.PathAndQuery));
+                if (IsSecure(context.Request))
+                    return next.Invoke();
 
-                    // end the pipeline
-                    return Task.FromResult(0);
-                }
+                // connection is not secure, so redirect to HTTPS
+                context.Response.Redirect(string.Format("https://{0}{1}{2}",
+                    context.Request.Uri.Host,
+                    sslPort.HasValue ? ":" + sslPort.Value : string.Empty,
+                    context.Request.Uri.PathAndQuery));
 
-                return next.Invoke();
+                // end the pipeline so nothing is processed insecurely
+                return Task.FromResult(0);
             });
+        }
+
+        private static bool IsSecure(IOwinRequest request)
+        {
+            return request.Uri.Scheme == "https"
+                || string.Equals(request.Headers["X-Forwarded-Proto"], "https", StringComparison.InvariantCultureIgnoreCase);  // from load balancer
         }
     }
 }
