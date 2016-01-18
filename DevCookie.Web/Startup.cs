@@ -14,7 +14,7 @@ namespace DevCookie.Web
         {
             app.RedirectToHttps("ssl-port");
 
-            GlobalFilters.Filters.Add(new DevCookieAuthorizeAttribute());
+            var container = ContainerConfig.SetupDependencyInjection(app);
 
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }

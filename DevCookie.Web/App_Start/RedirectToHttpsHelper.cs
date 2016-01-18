@@ -34,8 +34,11 @@ namespace DevCookie.Web
 
         private static bool IsSecure(IOwinRequest request)
         {
+
             return request.Uri.Scheme == "https"
-                || string.Equals(request.Headers["X-Forwarded-Proto"], "https", StringComparison.InvariantCultureIgnoreCase);  // from load balancer
+                // if load banalcer is doing 'ssl offloading' it will add a header indicating that 		
+                // the request is SSL secured even tho it's not HTTPS by the time it gets here.
+                || string.Equals(request.Headers["X-Forwarded-Proto"], "https", StringComparison.InvariantCultureIgnoreCase);
         }
     }
 }
