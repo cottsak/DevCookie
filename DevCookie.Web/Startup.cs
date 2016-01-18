@@ -12,7 +12,7 @@ namespace DevCookie.Web
     {
         public void Configuration(IAppBuilder app)
         {
-            app.RedirectToHttps("ssl-port");
+            app.RedirectToHttps("ssl-port", supportSslOffloading: true);
 
             var container = ContainerConfig.SetupDependencyInjection(app);
 
