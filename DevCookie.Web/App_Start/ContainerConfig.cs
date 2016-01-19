@@ -14,7 +14,7 @@ namespace DevCookie.Web
             var builder = new ContainerBuilder();
             builder.RegisterAssemblyModules(typeof(ContainerConfig).Assembly);
             // configure DevCookie
-            builder.RegisterModule(new DevAccessModule("U4SdMn12dTkLT4aktB75fvdpPcqnmEBc39aufs3QlGo6x2SZYo", useAsBlanketAuthFilter: true));
+            builder.RegisterModule(new DevAccessModule("U4SdMn12dTkLT4aktB75fvdpPcqnmEBc39aufs3QlGo6x2SZYo"));
             return builder.Build();
         }
 

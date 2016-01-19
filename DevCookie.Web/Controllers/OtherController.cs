@@ -14,6 +14,7 @@ namespace DevCookie.Web.Controllers
             return RedirectToAction("Page");
         }
 
+        [DevCookieAuthorize]
         public ActionResult Page()
         {
             return View();
