@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <projectUrl>https://github.com/cottsak/DevCookie</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Use DevCookie to get into prod quickly by hiding things not yet ready.</releaseNotes>
+    <copyright>CC BY 4.0 https://creativecommons.org/licenses/by/4.0/</copyright>
+    <dependencies>
+      <dependency id="Autofac" version="3.5.0" />
+      <dependency id="Autofac.Mvc5" version="3.3.4" />
+      <dependency id="Microsoft.AspNet.Mvc" version="5.2.3" />
+      <dependency id="Microsoft.AspNet.Razor" version="3.2.3" />
+      <dependency id="Microsoft.AspNet.WebPages" version="3.2.3" />
+      <dependency id="Microsoft.Web.Infrastructure" version="1.0.0.0" />
+    </dependencies>
+  </metadata>
+</package>
