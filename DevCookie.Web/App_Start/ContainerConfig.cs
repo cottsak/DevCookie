@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
+using DevCookie.Web.Controllers;
 using Owin;
 
 namespace DevCookie.Web
@@ -45,6 +46,9 @@ namespace DevCookie.Web
             // WebApi
             builder.RegisterApiControllers(ThisAssembly);
             builder.RegisterWebApiFilterProvider(GlobalConfiguration.Configuration);
+
+            // other
+            builder.RegisterType<FooService>().AsImplementedInterfaces().InstancePerLifetimeScope();
         }
     }
 }
