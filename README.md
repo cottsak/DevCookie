@@ -12,7 +12,7 @@ The goals of this package will be:
 
 These functions are critical to getting a MVP released quickly and should serve as one of the first packages a solution pulls in.
 
-# Up and running
+# So how do I use this?
 
 1. [`Install-Package DevCookie`](https://www.nuget.org/packages/DevCookie/)
 
@@ -64,6 +64,8 @@ Now all requests should return 404. To access a page simply append `?devaccess=U
 ```
 
 Now you should be able to toggle features on and off easily giving only "dev access" to those who need to preview/accept/test them in production.
+
+Also, you can test the [example project](https://github.com/cottsak/DevCookie/tree/master/DevCookie.Web), with the [above token](https://github.com/cottsak/DevCookie/blob/master/DevCookie.Web/App_Start/ContainerConfig.cs), as it is deployed to [devcookie.apphb.com](http://devcookie.apphb.com/).
 
 Any [feedback, suggestions](https://github.com/cottsak/DevCookie/issues/new) or [pull requests](https://github.com/cottsak/DevCookie/pulls) are really appreciated.
 
