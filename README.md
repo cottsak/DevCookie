@@ -16,7 +16,7 @@ These functions are critical to getting a MVP released quickly and should serve 
 
 1. [`Install-Package DevCookie`](https://www.nuget.org/packages/DevCookie/)
 
-2. Register the Autofac module and specify your dev cookie secret key: `builder.RegisterModule(new DevAccessModule("U4SdMn12dTkLT4aktB75fvdpPcqnmEBc39aufs3QlGo6x2SZYo"));`
+2. Register the Autofac module and specify your dev cookie secret key: `builder.RegisterModule(new DevAccessModule("U4SdMn12dTkLT4aktB75fvdpPcqnmEBc39aufs3QlGo6x2SZYo"));` (<- don't use this key!)
 
 ## I don't have any user authenticaton so I want to use DevCookie to protect my whole site
 
