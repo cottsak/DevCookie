@@ -10,3 +10,8 @@
 <p>page 1</p>
 
 <p>Let's go @Html.ActionLink("somewhere else", "Index", "Other").</p>
+
+@if (DevAccessChecker.UserHasDevAccess())
+{
+    <p>Looks like you're DEV. Welcome to the @Html.ActionLink("secret section!", "SecretPage", "Other")</p>
+}

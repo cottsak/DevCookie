@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace DevCookie.Web.Controllers
 {
-    public class OtherController : Controller
+    public class OtherController : BaseController
     {
         private readonly IFooService _fooService;
 

@@ -148,10 +148,12 @@
     <Compile Include="App_Start\ContainerConfig.cs" />
     <Compile Include="App_Start\RedirectToHttpsHelper.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OtherController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Views\BasePage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

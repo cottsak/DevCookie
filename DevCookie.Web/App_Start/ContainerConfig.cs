@@ -40,7 +40,7 @@ namespace DevCookie.Web
         {
             // MVC
             builder.RegisterModule(new AutofacWebTypesModule());
-            builder.RegisterControllers(ThisAssembly);
+            builder.RegisterControllers(ThisAssembly).PropertiesAutowired();
             builder.RegisterFilterProvider();
 
             // WebApi
