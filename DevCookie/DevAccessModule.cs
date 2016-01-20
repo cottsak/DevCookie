@@ -11,8 +11,8 @@ namespace DevCookie
 
         private readonly bool _useAsBlanketAuthFilter;
 
-        // todo: add supportSslOffloading flag here so that the if (request.IsSecureConnection) in DevAccessChecker can handle the header from SLB
         // todo: add overload for specifying appSetting key that holds the token
+        // todo: add supportSslOffloading flag here so that the if (request.IsSecureConnection) in DevAccessChecker can handle the header from SLB
         public DevAccessModule(string secretToken, int cookieExpiryInDays = 1, bool useAsBlanketAuthFilter = false)
         {
             SecretToken = secretToken;
