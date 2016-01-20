@@ -65,7 +65,7 @@ Now all requests should return 404. To access a page simply append `?devaccess=U
 
 Now you should be able to toggle features on and off easily giving only "dev access" to those who need to preview/accept/test them in production.
 
-Also, you can test the [example project](https://github.com/cottsak/DevCookie/tree/master/DevCookie.Web), with the [above token](https://github.com/cottsak/DevCookie/blob/master/DevCookie.Web/App_Start/ContainerConfig.cs), as it is deployed to [devcookie.apphb.com](http://devcookie.apphb.com/).
+Also, you can test the [example project](https://github.com/cottsak/DevCookie/tree/master/DevCookie.Web), with the [above token](https://github.com/cottsak/DevCookie/blob/master/DevCookie.Web/App_Start/ContainerConfig.cs), as it is deployed to [devcookie.apphb.com](http://devcookie.apphb.com/). You'll need to navigate to a [restricted page](https://devcookie.apphb.com/other/page) to get the 404 where you can then use the query string approach as listed above to set up the cookie and gain access.
 
 Any [feedback, suggestions](https://github.com/cottsak/DevCookie/issues/new) or [pull requests](https://github.com/cottsak/DevCookie/pulls) are really appreciated.
 
