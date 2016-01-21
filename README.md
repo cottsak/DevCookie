@@ -42,7 +42,7 @@ Now all requests should return 404. To access a page simply append `?devaccess=U
 
 ## Sounds great, but how do I branch at some arbitrary point in my stack?
 
-1. Inject the `IDevAccessChecker` into your abstraction like is shown in the [`FooService`](https://github.com/cottsak/DevCookie/blob/master/DevCookie.Web/Controllers/OtherController.cs) example:
+1. Inject the `IDevAccessChecker` into your abstraction like is shown in the [`FooService` example](https://github.com/cottsak/DevCookie/blob/master/DevCookie.Web/Controllers/OtherController.cs):
 ```
     class FooService : IFooService
     {
