@@ -10,7 +10,6 @@ namespace DevCookie
 
     public class DevAccessChecker : IDevAccessChecker
     {
-        // todo: setup option to allow these to be changed?
         internal const string CookieName = "devaccess";
         internal const string QueryStringName = "devaccess";
 
