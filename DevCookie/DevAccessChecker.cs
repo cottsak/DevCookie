@@ -22,13 +22,7 @@ namespace DevCookie
         }
 
         public bool UserHasDevAccess()
-        {
-            if (DevAccessModule.SecretToken == null)
-                throw new InvalidOperationException("DevCookie not setup. Please call DevCookieAccess.Setup() on startup.");
-            // todo: make this exception text less magic string.
-
-            return CookieIsValid(_request);
-        }
+        { return CookieIsValid(_request); }
 
         private static bool CookieIsValid(HttpRequestBase request)
         {
