@@ -1,8 +1,8 @@
 # DevCookie [![Build status](https://ci.appveyor.com/api/projects/status/5bd2lcbrbv00g3mu?svg=true)](https://ci.appveyor.com/project/cottsak/devcookie)
 
-> A helper library indended to enable rapid go-to-prod by providing early shared-key cookie based auth and Feature Toggling
+> A helper library intended to enable rapid go-to-prod by providing early shared-key cookie based auth and Feature Toggling
 
-When bulding MVPs, it's critical that infrastructure is not the focus. To this end there are a number of components that are very helpful in speeding up the go-to-prod process and DevCookie is one of them.
+When building MVPs, it's critical that infrastructure is not the focus. To this end there are a number of components that are very helpful in speeding up the go-to-prod process and DevCookie is one of them.
 
 The goals of this package will be:
 
@@ -16,11 +16,11 @@ These functions are critical to getting a MVP released quickly and should serve 
 
 1. [`Install-Package DevCookie`](https://www.nuget.org/packages/DevCookie/)
 
-2. Ensure that you're [using Autofac for MVC so you can register dependencies](http://docs.autofac.org/en/latest/integration/mvc.html#quick-start). Sorry, but for now we're taking a hard dependancy on Autofac.
+2. Ensure that you're [using Autofac for MVC so you can register dependencies](http://docs.autofac.org/en/latest/integration/mvc.html#quick-start). Sorry, but for now we're taking a hard dependency on Autofac.
 
 3. Register the Autofac module and specify your dev cookie secret key: `builder.RegisterModule(new DevAccessModule("U4SdMn12dTkLT4aktB75fvdpPcqnmEBc39aufs3QlGo6x2SZYo"));` (<< don't use this key!)
 
-## I don't have any user authenticaton so I want to use DevCookie to protect my whole site
+## I don't have any user authentication so I want to use DevCookie to protect my whole site
 
 1. When registering the `DevAccessModule`, use the `useAsGlobalAuthFilter` flag: `builder.RegisterModule(new DevAccessModule("U4SdMn12dTkLT4aktB75fvdpPcqnmEBc39aufs3QlGo6x2SZYo", useAsGlobalAuthFilter: true));`
 
