@@ -16,7 +16,7 @@ These functions are critical to getting a MVP released quickly and should serve 
 
 1. [`Install-Package DevCookie`](https://www.nuget.org/packages/DevCookie/)
 
-2. Ensure that you're [using Autofac for MVC so you can register dependancies](http://docs.autofac.org/en/latest/integration/mvc.html#quick-start). Sorry, but for now we're taking a hard dependancy on Autofac.
+2. Ensure that you're [using Autofac for MVC so you can register dependencies](http://docs.autofac.org/en/latest/integration/mvc.html#quick-start). Sorry, but for now we're taking a hard dependancy on Autofac.
 
 3. Register the Autofac module and specify your dev cookie secret key: `builder.RegisterModule(new DevAccessModule("U4SdMn12dTkLT4aktB75fvdpPcqnmEBc39aufs3QlGo6x2SZYo"));` (<< don't use this key!)
 
