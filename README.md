@@ -20,13 +20,13 @@ These functions are critical to getting a MVP released quickly and should serve 
 
 ## I don't have any user authenticaton so I want to use DevCookie to protect my whole site
 
-1. When registering the `DevAccessModule`, use the `useAsBlanketAuthFilter` flag: `builder.RegisterModule(new DevAccessModule("U4SdMn12dTkLT4aktB75fvdpPcqnmEBc39aufs3QlGo6x2SZYo", useAsBlanketAuthFilter: true));`
+1. When registering the `DevAccessModule`, use the `useAsGlobalAuthFilter` flag: `builder.RegisterModule(new DevAccessModule("U4SdMn12dTkLT4aktB75fvdpPcqnmEBc39aufs3QlGo6x2SZYo", useAsGlobalAuthFilter: true));`
 
 Now all requests should return 404. To access a page simply append `?devaccess=U4SdMn12dTkLT4aktB75fvdpPcqnmEBc39aufs3QlGo6x2SZYo` to the url in your browser to create the cookie.
 
 ## I just want to [feature toggle](http://stackoverflow.com/a/7707394/56145) certain behaviour at the action/controller level
 
-1. Make sure the `useAsBlanketAuthFilter` flag is set to `false`.
+1. Make sure the `useAsGlobalAuthFilter` flag is set to `false`.
 2. Use the `[DevCookieAuthorize]` on only those actions/controllers you wish to prevent public access to. Only requests that include the dev cookie (or query string param) will be able to access those actions.
 3. When the feature goes live, remove the `[DevCookieAuthorize]` and redeploy.
 
