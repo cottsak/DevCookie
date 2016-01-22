@@ -1,18 +1,18 @@
 # DevCookie [![Build status](https://ci.appveyor.com/api/projects/status/5bd2lcbrbv00g3mu?svg=true)](https://ci.appveyor.com/project/cottsak/devcookie)
 
-> A helper library intended to enable rapid go-to-prod by providing early shared-key cookie based auth and Feature Toggling
+> A helper library intended to enable rapid go-to-prod by providing simple Feature Toggling helpers and optional early shared-key cookie based authentication.
 
-When building MVPs, it's critical that infrastructure is not the focus. To this end there are a number of components that are very helpful in speeding up the go-to-prod process and DevCookie is one of them.
+## So why do I need this?
 
-The goals of this package will be:
+[Feature Toggling](http://martinfowler.com/bliki/FeatureToggle.html) (or [Feature Flagging](http://stackoverflow.com/a/7707394/56145)) is a great tool you can use to get stuff to prod fast! #shipit
 
-1. Providing simple infrastructure for a global authentication filter based on a shared-key "development cookie" which the team can use to introduce a thin security layer to a production website deployment, prior to full user management.
+It goes hand in hand with concepts like [CI](https://en.wikipedia.org/wiki/Continuous_integration)/[CD](https://en.wikipedia.org/wiki/Continuous_delivery) and other best practices like [Automated Testing](https://github.com/cottsak/testingstrategyguidance/blob/master/testing-strategy.md), etc. One of the great benefits of [Mainline Development](https://www.thoughtworks.com/insights/blog/enabling-trunk-based-development-deployment-pipelines) is that everything is integrated all the time and ideally, it should be ready for production all the time too. That's where DevCookie comes in.
 
-2. Using the same shared-key dev cookie, a simple interface is available to toggle features, page elements and other branching logic anywhere in the app.
+DevCookie is a simple infrastructure which enables you to hide/show features easily using various hooks so that, even if a story/epic/feature is not complete, it can go to production integrated. Devs/testers/anyone on your team can then test it, show it to stakeholders and ultimately get it accepted without it being visible to the wild. Once the Feature Toggle is lifted, it's live and thoroughly de-risked.
 
-These functions are critical to getting a MVP released quickly and should serve as one of the first packages a solution pulls in.
+DevCookie is about getting to prod fast! This applies to the enterprise where apps have longer story lifetimes; but it's also useful for MVP/prototypes too. DevCookie can be used to show/hide small parts of the site or act as a simple authentication wall for the whole thing until launch.
 
-# So how do I use this?
+## So how do I use this?
 
 1. [`Install-Package DevCookie`](https://www.nuget.org/packages/DevCookie/)
 
@@ -20,19 +20,19 @@ These functions are critical to getting a MVP released quickly and should serve 
 
 3. Register the Autofac module and specify your dev cookie secret key: `builder.RegisterModule(new DevAccessModule("U4SdMn12dTkLT4aktB75fvdpPcqnmEBc39aufs3QlGo6x2SZYo"));` (<< don't use this key!)
 
-## I don't have any user authentication so I want to use DevCookie to protect my whole site
+### I don't have any user authentication so I want to use DevCookie to protect my whole site
 
 1. When registering the `DevAccessModule`, use the `useAsGlobalAuthFilter` flag: `builder.RegisterModule(new DevAccessModule("U4SdMn12dTkLT4aktB75fvdpPcqnmEBc39aufs3QlGo6x2SZYo", useAsGlobalAuthFilter: true));`
 
 Now all requests should return 404. To access a page simply append `?devaccess=U4SdMn12dTkLT4aktB75fvdpPcqnmEBc39aufs3QlGo6x2SZYo` to the url in your browser to create the cookie.
 
-## I just want to [feature toggle](http://stackoverflow.com/a/7707394/56145) certain behaviour at the action/controller level
+### I just want to [feature toggle](http://stackoverflow.com/a/7707394/56145) certain behaviour at the action/controller level
 
 1. Make sure the `useAsGlobalAuthFilter` flag is set to `false`.
 2. Use the `[DevAccessAuthorize]` on only those actions/controllers you wish to prevent public access to. Only requests that include the dev cookie (or query string param) will be able to access those actions.
 3. When the feature goes live, remove the `[DevAccessAuthorize]` and redeploy.
 
-## Well I'm toggling at the controller level now but I need to show/hide things in certain views
+### Well I'm toggling at the controller level now but I need to show/hide things in certain views
 
 1. You can use something like the `DevAccessChecker` from a [`BasePage`](https://github.com/cottsak/DevCookie/blob/master/DevCookie.Web/Views/BasePage.cs) in this fashion:
 ```
@@ -42,7 +42,7 @@ Now all requests should return 404. To access a page simply append `?devaccess=U
 }
 ```
 
-## Sounds great, but how do I branch at some arbitrary point in my stack?
+### Sounds great, but how do I branch at some arbitrary point in my stack?
 
 1. Inject the `IDevAccessChecker` into your abstraction like is shown in the [`FooService` example](https://github.com/cottsak/DevCookie/blob/master/DevCookie.Web/Controllers/OtherController.cs):
 ```
