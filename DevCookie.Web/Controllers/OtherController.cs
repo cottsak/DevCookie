@@ -22,13 +22,13 @@ namespace DevCookie.Web.Controllers
             return RedirectToAction("Page");
         }
 
-        [DevCookieAuthorize]
+        [DevAccessAuthorize]
         public ActionResult Page()
         {
             return View();
         }
 
-        [DevCookieAuthorize]
+        [DevAccessAuthorize]
         public ActionResult SecretPage()
         {
             return View();

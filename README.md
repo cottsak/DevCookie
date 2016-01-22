@@ -27,8 +27,8 @@ Now all requests should return 404. To access a page simply append `?devaccess=U
 ## I just want to [feature toggle](http://stackoverflow.com/a/7707394/56145) certain behaviour at the action/controller level
 
 1. Make sure the `useAsGlobalAuthFilter` flag is set to `false`.
-2. Use the `[DevCookieAuthorize]` on only those actions/controllers you wish to prevent public access to. Only requests that include the dev cookie (or query string param) will be able to access those actions.
-3. When the feature goes live, remove the `[DevCookieAuthorize]` and redeploy.
+2. Use the `[DevAccessAuthorize]` on only those actions/controllers you wish to prevent public access to. Only requests that include the dev cookie (or query string param) will be able to access those actions.
+3. When the feature goes live, remove the `[DevAccessAuthorize]` and redeploy.
 
 ## Well I'm toggling at the controller level now but I need to show/hide things in certain views
 

@@ -30,7 +30,7 @@ namespace DevCookie
 
             if (_useAsGlobalAuthFilter)
             {
-                builder.Register(c => new DevCookieAuthorizeAttribute())
+                builder.Register(c => new DevAccessAuthorizeAttribute())
                     .AsAuthorizationFilterFor<Controller>()
                     .PropertiesAutowired()
                     .InstancePerLifetimeScope();

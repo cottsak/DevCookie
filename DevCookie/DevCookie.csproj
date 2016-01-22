@@ -79,7 +79,7 @@
   <ItemGroup>
     <Compile Include="DevAccessChecker.cs" />
     <Compile Include="DevAccessModule.cs" />
-    <Compile Include="DevCookieAuthorizeAttribute.cs" />
+    <Compile Include="DevAccessAuthorizeAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

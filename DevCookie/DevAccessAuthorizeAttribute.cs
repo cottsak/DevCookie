@@ -2,7 +2,7 @@ using System.Web.Mvc;
 
 namespace DevCookie
 {
-    public class DevCookieAuthorizeAttribute : FilterAttribute, IAuthorizationFilter
+    public class DevAccessAuthorizeAttribute : FilterAttribute, IAuthorizationFilter
     {
         public IDevAccessChecker  Checker { get; set; }
 
