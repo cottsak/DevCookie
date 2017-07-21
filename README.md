@@ -35,7 +35,7 @@ Now all requests should return 404. To access a page simply append `?devaccess=U
 ### Well I'm toggling at the controller level now but I need to show/hide things in certain views
 
 1. You can use something like the `DevAccessChecker` from a [`BasePage`](https://github.com/cottsak/DevCookie/blob/master/DevCookie.Web/Views/BasePage.cs) in this fashion:
-```
+```csharp
 @if (DevAccessChecker.UserHasDevAccess())
 {
     <p>Looks like you're DEV. You're invited to the @Html.ActionLink("secret section!", "SecretPage", "Other")</p>
@@ -45,7 +45,7 @@ Now all requests should return 404. To access a page simply append `?devaccess=U
 ### Sounds great, but how do I branch at some arbitrary point in my stack?
 
 1. Inject the `IDevAccessChecker` into your abstraction like is shown in the [`FooService` example](https://github.com/cottsak/DevCookie/blob/master/DevCookie.Web/Controllers/OtherController.cs):
-```
+```csharp
     class FooService : IFooService
     {
         private readonly IDevAccessChecker _devAccessChecker;
