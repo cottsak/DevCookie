@@ -10,7 +10,7 @@ It goes hand in hand with concepts like [CI](https://en.wikipedia.org/wiki/Conti
 
 DevCookie is a simple infrastructure which enables you to hide/show features easily using various hooks so that, even if a story/epic/feature is not complete, it can go to production integrated. Devs/testers/anyone on your team can then test it, show it to stakeholders and ultimately get it accepted without it being visible to the wild. Once the Feature Toggle is lifted, it's live and thoroughly de-risked.
 
-DevCookie is about getting to prod fast! This applies to the enterprise where apps have longer story lifetimes; but it's also useful for MVP/prototypes too. DevCookie can be used to show/hide small parts of the site or act as a simple authentication wall for the whole thing until launch.
+DevCookie is about [getting to prod fast in a low risk manner](https://agileforleads.com/)! This applies to the enterprise where apps have longer story lifetimes; but it's also useful for MVP/prototypes too. DevCookie can be used to show/hide small parts of the site or act as a simple authentication wall for the whole web-app until launch.
 
 ## So how do I use this?
 

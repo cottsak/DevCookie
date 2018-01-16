@@ -11,8 +11,8 @@
     <description>$description$</description>
     <copyright>$copyright$</copyright>
     <dependencies>
-      <dependency id="Autofac" version="3.5.0" />
-      <dependency id="Autofac.Mvc5" version="3.3.4" />
+      <dependency id="Autofac" version="4.0.1" />
+      <dependency id="Autofac.Mvc5" version="4.0.2" />
       <dependency id="Microsoft.AspNet.Mvc" version="5.2.3" />
       <dependency id="Microsoft.AspNet.Razor" version="3.2.3" />
       <dependency id="Microsoft.AspNet.WebPages" version="3.2.3" />
