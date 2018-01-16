@@ -10,7 +10,7 @@ namespace DevCookie
 
     public class DevAccessChecker : IDevAccessChecker
     {
-        internal const string CookieName = "devaccess";
+        public const string CookieName = "devaccess";
         internal const string QueryStringName = "devaccess";
 
         private readonly HttpRequestBase _request;
