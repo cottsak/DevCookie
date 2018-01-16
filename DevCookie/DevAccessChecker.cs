@@ -29,17 +29,16 @@ namespace DevCookie
             return cookie != null && cookie.Value == DevAccessModule.SecretToken;
         }
 
-        internal static bool QueryStringIsValidAndCookieCreated(HttpRequestBase request, HttpResponseBase response)
+        internal static void ReturnCookieIfQueryStringPresent(HttpRequestBase request, HttpResponseBase response)
         {
             var authToken = request.QueryString[QueryStringName];
             if (authToken != DevAccessModule.SecretToken)
-                return false;
+                return;
 
             var authCookie = new HttpCookie(CookieName, authToken) { Expires = DateTime.UtcNow.AddDays(DevAccessModule.CookieExpiryInDays) };
             if (request.IsSecureConnection)
                 authCookie.Secure = true;       // todo: an integration test for this would be great. it's kinda important
             response.Cookies.Add(authCookie);
-            return true;
         }
     }
 }

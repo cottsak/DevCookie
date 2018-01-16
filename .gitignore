@@ -2,9 +2,10 @@
 *.user
 */bin
 */obj
+/.vs/
+
 /packages
+
 *.ncrunchproject
 /*.ncrunchsolution
 *_NCrunch*
-/.vs/config/applicationhost.config
-

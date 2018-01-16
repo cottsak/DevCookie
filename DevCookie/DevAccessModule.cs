@@ -6,8 +6,8 @@ namespace DevCookie
 {
     public class DevAccessModule : Module
     {
-        public static string SecretToken = null;
-        public static int CookieExpiryInDays = 1;
+        public static string SecretToken;
+        public static int CookieExpiryInDays;
 
         private readonly bool _useAsGlobalAuthFilter;
 
@@ -28,6 +28,11 @@ namespace DevCookie
 
             builder.RegisterFilterProvider();   // todo: end-to-end test! this line is required
 
+            builder.Register(c => new DevAccessQueryStringToCookieFilter())
+                .AsAuthorizationFilterFor<Controller>(order: -100)  // order is critical for devcookie UX: other filters will come first without this and the querystring wont work
+                .PropertiesAutowired()
+                .InstancePerLifetimeScope();
+
             if (_useAsGlobalAuthFilter)
             {
                 builder.Register(c => new DevAccessAuthorizeAttribute())
@@ -37,6 +42,14 @@ namespace DevCookie
 
                 // todo: add wiring for webapi controllers?
             }
+        }
+    }
+
+    public class DevAccessQueryStringToCookieFilter : IAuthorizationFilter
+    {
+        public void OnAuthorization(AuthorizationContext filterContext)
+        {
+            DevAccessChecker.ReturnCookieIfQueryStringPresent(filterContext.HttpContext.Request, filterContext.HttpContext.Response);
         }
     }
 }
